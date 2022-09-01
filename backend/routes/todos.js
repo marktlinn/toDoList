@@ -1,27 +1,16 @@
 const express = require('express');
-const Todo = require('../models/todosModels')
 const router = express.Router()
+const { getAllTodos, getTodo, createTodo } = require('../controllers/todosController')
 
-router.get('/', (req,res)=>{
-    res.send(`<h1>Todos Live Here!</h1>`)
-})
+//Get all Todos
+router.get('/', getAllTodos)
 
-//Gets a singular Todo
-router.get('/:id', (req,res)=>{
-    res.send(`<h1>Just one ToDo!</h1>`)
-})
+//Get a singular Todo
+router.get('/:id', getTodo)
 
 
 //Post a new Todo
-router.post('/', async (req,res)=>{
-    const { title, description} = req.body;
-    try {
-        const todo = await Todo.create({title, description})
-        res.status(200).json(todo);
-    } catch (error) {
-        res.status(500).json(`Error: ${error.message}`)
-    }
-})
+router.post('/', createTodo)
 
 // Delete a Todo
 router.delete('/:id', (req,res)=>{
