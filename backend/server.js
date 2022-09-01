@@ -1,9 +1,12 @@
-require('dotenv').config()
+require('dotenv').config( {path: './config/.env'})
 const PORT = process.env.PORT || 3000;
-const express = require("express");
-
+const express = require('express');
+const connectDB = require('./config/db')
 //express app setup
 const app = express()
+
+//database connection
+connectDB()
 
 //middleware 
 app.use(express.json())
