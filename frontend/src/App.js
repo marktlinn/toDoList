@@ -1,13 +1,9 @@
-import { useState } from 'react'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-
-//pages and components
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import React from 'react';
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -16,13 +12,13 @@ function App() {
         <Routes>
           <Route
           path="/"
-          element={<Home />}
+          element={< Home />}
           />
         </Routes>
       </div>
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,3 +1,4 @@
+
 /*Colour variables*/
 :root{
   --dark-brown: #463F3A;
@@ -25,10 +26,13 @@ body {
   margin: 0;
   background-color: var(--cream);
 }
-
-header .container{
-  max-width: 1400px;
+header{
+  width: 100%;
   background-color: var(--dark-brown);
+
+}
+header >.container{
+  max-width: 1400px;
   padding: 1rem 2rem;
   margin: 0 auto;
   display: flex;
@@ -46,4 +50,34 @@ header a {
   max-width: 1400px;
   padding: 2rem;
   margin: 0 auto;
+}
+
+/* Home page and cards rules*/
+
+.home{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1rem;
+}
+
+.todo-details{
+  background: var(--light-grey);
+  border-radius: .4rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 2px 2px 5px var(--dark-grey);
+}
+
+.todo-details h4{
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark-brown);
+}
+
+.todo-details p {
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--dark-brown)
 }
