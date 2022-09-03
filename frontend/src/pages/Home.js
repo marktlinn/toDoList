@@ -3,6 +3,7 @@ import React from 'react'
 
 //components
 import TodoDetails from '../components/TodoDetails'
+import TodoForm from "../components/TodoForm"
 
 const Home = () => {
     const [todos, setTodos] = useState(null)
@@ -24,6 +25,7 @@ const Home = () => {
                 return < TodoDetails key={item._id} todo={item} />
             })}
             </div>
+            < TodoForm />
         </div>
     )
 }
