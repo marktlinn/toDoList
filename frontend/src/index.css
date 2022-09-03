@@ -81,3 +81,44 @@ header a {
   font-size: 1.3rem;
   color: var(--dark-brown)
 }
+
+
+/*Form styling*/
+
+label{
+  display: block;
+}
+
+input, textarea{
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  border: 1px solid var(--dark-grey);
+  border-radius: .4rem;
+  box-sizing: border-box;
+}
+
+form select{
+  color: var(--dark-brown);
+  padding: 3rem;
+  border-radius: .4rem;
+  cursor: pointer;
+}
+form button{
+  background: var(--pastel);
+  color: var(--dark-brown);
+  border: none;
+  padding: 1rem;
+  border-radius: .4rem;
+  cursor: pointer;
+}
+
+.form-error-msg{
+  padding: 1rem;
+  color: var(--cream);
+  background-color: var(--dark-grey);
+  border: 1px solid var(--dark-brown);
+  border-radius: .4rem;
+  margin: 2rem 0;
+}

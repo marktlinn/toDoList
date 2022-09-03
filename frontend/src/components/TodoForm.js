@@ -5,13 +5,13 @@ const TodoForm = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [toFinishBy, setToFinishBy] = useState('');
-    const [completed, setCompleted] = useState('');
+    // const [completed, setCompleted] = useState('');
     const [error, setError] = useState(null)
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
 
-        const todo = {title, description,toFinishBy, completed}
+        const todo = {title, description,toFinishBy}
 
         const response = await fetch('/api/todo', {
             method: 'POST',
@@ -30,7 +30,7 @@ const TodoForm = () => {
             setTitle('');
             setDescription('');
             setToFinishBy('');
-            setCompleted(false);
+            // setCompleted(false);
             setError(null)
             console.log('Todo Added');
         }
@@ -62,19 +62,17 @@ const TodoForm = () => {
             value ={toFinishBy}
              />
 
-            <select 
+            {/* <select 
             onChange={e=> setCompleted(e.target.value)}
             value={completed}
             >
             <option value={false}>No</option>
             <option value={true}>Yes</option>
-            </select>
+            </select> */}
 
             <button>Add Todo</button>
 
-            {error && 
-            <div className="error-msg">{error}</div>
-            }
+            {error && <div className="form-error-msg">{error}</div>}
         </form>
 
     )
