@@ -22,7 +22,7 @@ const TodoDetails = ({todo}) => {
             <p><strong>Description: </strong> {todo.description}</p>
             <p><strong>Created: </strong> {todo.createdAt}</p>
             {todo.toFinishBy && <p><strong>Finish By: </strong>{todo.toFinishBy}</p>}
-            <button onClick={deleteClick}>Delete</button>
+            <button className='deleteBtn' onClick={deleteClick}>Delete</button>
         </div>    
     )
 }
