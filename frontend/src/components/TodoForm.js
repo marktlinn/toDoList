@@ -10,7 +10,7 @@ const TodoForm = () => {
     const handleSubmit = async (e) =>{
         e.preventDefault();
 
-        const todo = {title, description,toFinishBy}
+        const todo = {title, description, toFinishBy}
 
         const response = await fetch('/api/todo', {
             method: 'POST',
@@ -39,18 +39,20 @@ const TodoForm = () => {
         <form  className="create" onSubmit={handleSubmit}>
             <h3>Add A New Todo</h3>
 
-            <label>Todo Title:</label>
+            <label>Todo Title* :</label>
             <input 
             type="text"
             onChange={e=> setTitle(e.target.value)}
             value ={title}
+            // required
              />
 
-            <label>Description:</label>
+            <label>Description*:</label>
             <textarea 
             type="text"
             onChange={e=> setDescription(e.target.value)}
             value={description}
+            // required
             >
             </textarea>
 

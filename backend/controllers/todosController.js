@@ -10,7 +10,7 @@ const getAllTodos = async (req,res)=>{
         res.status(200).json(todos)
 
     } catch (error) {
-        res.status(500).json(`Error: ${error.message}`)
+        res.status(500).json({error: error.message})
     }
 
 }
@@ -28,7 +28,7 @@ const getTodo = async (req,res)=>{
         }
         res.status(200).json(todo)
     } catch (error) {
-        res.status(500).json(`Error: ${error.message}`)
+        res.status(500).json({Error: error.message})
     }
 }
 
@@ -39,7 +39,7 @@ const createTodo = async (req,res)=>{
         const todo = await Todo.create({title, description, toFinishBy, completed})
         res.status(200).json(todo);
     } catch (error) {
-        res.status(500).json(`Error: ${error.message}`)
+        res.status(500).json({error: error.message})
     }
 }
 // delete todo
@@ -54,7 +54,7 @@ const deleteTodo = async (req,res)=>{
             res.status(400).json({error: 'no such todo found to delete'})
         }
     } catch (error) {
-        res.status(500).json(`Error: ${error.message}`)
+        res.status(500).json({error: error.message})
         
     }
 }
@@ -73,7 +73,7 @@ const updateTodo = async (req,res)=>{
 
         }
     } catch (error) {
-        res.status(500).json(`Error: ${error.message}`)
+        res.status(500).json({error: error.message})
     }
 }
 
