@@ -5,7 +5,6 @@ const TodoForm = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [toFinishBy, setToFinishBy] = useState('');
-    // const [completed, setCompleted] = useState('');
     const [error, setError] = useState(null)
 
     const handleSubmit = async (e) =>{
@@ -61,14 +60,6 @@ const TodoForm = () => {
             onChange={e=> setToFinishBy(e.target.value)}
             value ={toFinishBy}
              />
-
-            {/* <select 
-            onChange={e=> setCompleted(e.target.value)}
-            value={completed}
-            >
-            <option value={false}>No</option>
-            <option value={true}>Yes</option>
-            </select> */}
 
             <button>Add Todo</button>
 
