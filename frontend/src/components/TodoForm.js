@@ -1,7 +1,10 @@
 import React from 'react';
 import { useState } from "react"
+import { useTodosContext } from '../hooks/useTodosContext';
 
 const TodoForm = () => {
+    const {dispatch} = useTodosContext();
+
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [toFinishBy, setToFinishBy] = useState('');
@@ -29,9 +32,9 @@ const TodoForm = () => {
             setTitle('');
             setDescription('');
             setToFinishBy('');
-            // setCompleted(false);
-            setError(null)
+            setError(null);
             console.log('Todo Added');
+            dispatch({type: "CREATE_TODOS", payload: json});
         }
     }
 

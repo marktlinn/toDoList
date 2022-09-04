@@ -131,6 +131,7 @@ form button{
 .form-error-msg{
   padding: 1rem;
   color: var(--cream);
+  font-size: 1.4rem;
   background-color: var(--dark-grey);
   border: 1px solid var(--dark-brown);
   border-radius: .4rem;
