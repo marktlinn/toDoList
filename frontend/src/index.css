@@ -85,6 +85,11 @@ header a {
 
 /*Form styling*/
 
+form{
+  display: flex;
+  flex-direction: column;
+}
+
 label{
   display: block;
 }
@@ -94,6 +99,7 @@ input, textarea{
   margin-top: 1rem;
   margin-bottom: 2rem;
   width: 100%;
+  max-width: 400px;
   border: 1px solid var(--dark-grey);
   border-radius: .4rem;
   box-sizing: border-box;
@@ -108,6 +114,8 @@ form select{
 form button{
   background: var(--pastel);
   color: var(--dark-brown);
+  width: 70%;
+  align-self: center;
   border: none;
   padding: 1rem;
   border-radius: .4rem;
