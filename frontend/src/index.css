@@ -89,9 +89,15 @@ form{
   display: flex;
   flex-direction: column;
 }
+form >h3{
+  font-size: 1.7rem;
+  font-weight: 700;
+}
 
 label{
   display: block;
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
 input, textarea{
