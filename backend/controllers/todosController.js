@@ -45,18 +45,15 @@ const createTodo = async (req,res)=>{
 // delete todo
 const deleteTodo = async (req,res)=>{
     const { id } = req.params;
-    try {
         if(!mongoose.Types.ObjectId.isValid(id)){
             return res.status(404).json({error: 'No such todo exists'})
         }
         const todo = await Todo.findOneAndDelete({_id: id})
+
         if(!todo){
-            res.status(400).json({error: 'no such todo found to delete'})
-        }
-    } catch (error) {
-        res.status(500).json({error: error.message})
-        
-    }
+            return res.status(400).json({error: 'no such todo found to delete'})
+        }    
+        res.status(200).json(todo);
 }
 // update todo
 const updateTodo = async (req,res)=>{

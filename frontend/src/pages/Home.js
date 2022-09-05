@@ -4,8 +4,8 @@ import { useTodosContext } from "../hooks/useTodosContext"
 
 
 //components
-import TodoDetails from '../components/TodoDetails'
 import TodoForm from "../components/TodoForm"
+import TodoDetails from '../components/TodoDetails'
 
 const Home = () => {
     const {todos, dispatch} = useTodosContext()
@@ -24,8 +24,8 @@ const Home = () => {
     return (
         <div className="home">
             <div className="todos">
-            {todos && todos.map((item) => {
-                return < TodoDetails key={item._id} todo={item} />
+            {todos && todos.map((todo) => {
+                return < TodoDetails key={todo._id} todo={todo} />
             })}
             </div>
             < TodoForm />

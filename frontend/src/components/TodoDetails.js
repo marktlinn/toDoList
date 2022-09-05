@@ -5,16 +5,16 @@ const TodoDetails = ({todo}) => {
     const {dispatch} = useTodosContext();
 
     const deleteClick = async () => {
-        const response = await fetch(`api/todo/${todo._id}`, {
+        const response = await fetch('api/todo/' + todo._id, {
             method: 'DELETE'
-        });
+        })
+        console.log('deleted', response)
         const json = await response.json();
-
+        console.log(json)
         if(response.ok) {
-            dispatch({type: 'DELETE_TODO', payload: json})
+            dispatch({type: 'DELETE_TODO', payload: json});
         }
     }
-    
 
     return (
         <div className="todo-details">

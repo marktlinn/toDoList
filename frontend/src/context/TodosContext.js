@@ -1,5 +1,6 @@
 import React from "react";
 import { createContext, useReducer } from "react";
+
 export const TodosContext = createContext()
 
 export const todosReducer = (state, action) => {
@@ -8,15 +9,14 @@ export const todosReducer = (state, action) => {
             return {
                 todos: action.payload
             }
-        case 'CREATE_TODOS': 
+        case 'CREATE_TODO': 
             return {
                 todos: [action.payload, ...state.todos]
             }
-        case 'DELETE_TODO':{
+        case 'DELETE_TODO':
             return {
-                todos: state.todos.filter(todo=> todo._id !== action.payload._id)
+                todos: state.todos.filter(elem=> elem._id !== action.payload._id)
             }
-        }
         default:
             return state;
     }

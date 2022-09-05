@@ -33,8 +33,7 @@ const TodoForm = () => {
             setDescription('');
             setToFinishBy('');
             setError(null);
-            console.log('Todo Added');
-            dispatch({type: "CREATE_TODOS", payload: json});
+            dispatch({type: "CREATE_TODO", payload: json});
         }
     }
 
@@ -70,7 +69,6 @@ const TodoForm = () => {
 
             {error && <div className="form-error-msg">{error}</div>}
         </form>
-
     )
 }
 
