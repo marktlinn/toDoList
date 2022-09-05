@@ -35,6 +35,19 @@ const getTodo = async (req,res)=>{
 // create new todo
 const createTodo = async (req,res)=>{
     const { title, description, toFinishBy, completed} = req.body;
+
+    let emptyFields = [];
+
+    if(!title){
+        emptyFields.push('Title')
+    }
+    if(!description){
+        emptyFields.push('Description')
+    }
+    if(emptyFields.length> 0) {
+        return res.status(400).json({error: 'Please make sure all Todos have Title and Description', emptyFields})
+    }
+
     try {
         const todo = await Todo.create({title, description, toFinishBy, completed})
         res.status(200).json(todo);

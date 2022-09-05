@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 /*Colour variables*/
 :root{
   --dark-brown: #463F3A;
@@ -156,4 +156,15 @@ form button{
   border: 1px solid var(--dark-brown);
   border-radius: .4rem;
   margin: 2rem 0;
+}
+
+.error-text{
+  border: 1px solid red;
+  font-family: Inter;
+
+}
+
+.error-text::placeholder{
+  color: red;
+  font-family: Inter;
 }

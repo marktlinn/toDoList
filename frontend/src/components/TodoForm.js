@@ -8,7 +8,8 @@ const TodoForm = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [toFinishBy, setToFinishBy] = useState('');
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(null);
+    const [emptyFields, setEmptyFields] = useState([]);
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
@@ -26,6 +27,7 @@ const TodoForm = () => {
 
         if(!response.ok){
             setError(json.error);
+            setEmptyFields(json.emptyFields)
         }
         if(response.ok){
             setError(null);
@@ -33,6 +35,7 @@ const TodoForm = () => {
             setDescription('');
             setToFinishBy('');
             setError(null);
+            setEmptyFields([]);
             dispatch({type: "CREATE_TODO", payload: json});
         }
     }
@@ -44,6 +47,8 @@ const TodoForm = () => {
             <label>Todo Title* :</label>
             <input 
             type="text"
+            className={emptyFields.includes('Title')? 'error-text' : ''}
+            placeholder={emptyFields.includes('Description')? 'Please fill this field' : ''}
             onChange={e=> setTitle(e.target.value)}
             value ={title}
             // required
@@ -52,6 +57,8 @@ const TodoForm = () => {
             <label>Description*:</label>
             <textarea 
             type="text"
+            className={emptyFields.includes('Description')? 'error-text' : ''}
+            placeholder={emptyFields.includes('Description')? 'Please fill this field' : ''}
             onChange={e=> setDescription(e.target.value)}
             value={description}
             // required
