@@ -7,6 +7,7 @@ import { format } from 'date-fns';
 //fontAwesome component
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faCheck} from '@fortawesome/free-solid-svg-icons';
+
 const TodoDetails = ({todo}) => {
     const {dispatch} = useTodosContext();
 
@@ -16,10 +17,27 @@ const TodoDetails = ({todo}) => {
         })
         console.log('deleted', response)
         const json = await response.json();
-        console.log(json)
         if(response.ok) {
             dispatch({type: 'DELETE_TODO', payload: json});
         }
+    }
+
+    const updateCompleted = async (e) => {
+        e.preventDefault()
+        const val = e.target.value;
+        console.log('updated', e.target.value)
+        const response = await fetch(`api/todo/${todo._id}`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({completed: val})
+        })
+        const json = await response.json;
+        if(response.ok){
+            dispatch({type: 'UPDATE_TODO', payload: json})
+        }
+
     }
 
     return (
@@ -28,7 +46,7 @@ const TodoDetails = ({todo}) => {
             <p><strong>Description: </strong> {todo.description}</p>
             <p><strong>Created: </strong> {formatDistanceToNow(new Date(todo.createdAt), {addSuffix: true})}</p>
             {todo.toFinishBy && <p><strong>Finish By: </strong>{format(new Date(todo.toFinishBy), 'E-do-MMM-yyyy')}</p>}
-            <button className='updateBtn'><FontAwesomeIcon className='completed' icon={faCheck} /></button>
+            <button className='updateBtn' onClick={updateCompleted} value={true} ><FontAwesomeIcon className='completed' icon={faCheck} /></button>
             <button className='deleteBtn' onClick={deleteClick}><FontAwesomeIcon className="fa-trash" icon={faTrash} /></button>
         </div>    
     )
