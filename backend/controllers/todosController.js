@@ -6,7 +6,7 @@ const Todo = require('../models/todosModels')
 // get all todos
 const getAllTodos = async (req,res)=>{
     try {
-        const todos = await Todo.find({}).sort({createdAt: -1});
+        const todos = await Todo.find({}).sort({toFinishBy: 1,  createdAt: -1});
         res.status(200).json(todos)
 
     } catch (error) {
