@@ -6,8 +6,7 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { format } from 'date-fns';
 //fontAwesome component
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-
+import { faTrash, faCheck} from '@fortawesome/free-solid-svg-icons';
 const TodoDetails = ({todo}) => {
     const {dispatch} = useTodosContext();
 
@@ -29,6 +28,7 @@ const TodoDetails = ({todo}) => {
             <p><strong>Description: </strong> {todo.description}</p>
             <p><strong>Created: </strong> {formatDistanceToNow(new Date(todo.createdAt), {addSuffix: true})}</p>
             {todo.toFinishBy && <p><strong>Finish By: </strong>{format(new Date(todo.toFinishBy), 'E-do-MMM-yyyy')}</p>}
+            <button className='updateBtn'><FontAwesomeIcon className='completed' icon={faCheck} /></button>
             <button className='deleteBtn' onClick={deleteClick}><FontAwesomeIcon className="fa-trash" icon={faTrash} /></button>
         </div>    
     )

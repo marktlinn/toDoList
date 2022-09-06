@@ -102,6 +102,24 @@ header a {
   border: 2px solid var(--dark-brown);
 }
 
+.updateBtn{
+  background-color: var(--pastel);
+  position: absolute;
+  right: 5rem;
+  bottom: .5rem;
+  color: var(--cream);
+  border: none;
+  padding: .85rem;
+  border: 1px solid var(--dark-grey);
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+.updateBtn:active{
+  background-color: var(--dark-grey);
+  transition: 250ms;
+  border: 2px solid var(--cream);
+}
 
 /*Form styling*/
 
