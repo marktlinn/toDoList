@@ -121,6 +121,7 @@ label{
 }
 
 input, textarea{
+  font-family: Inter;
   padding: 1rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
@@ -167,4 +168,12 @@ form button{
 .error-text::placeholder{
   color: red;
   font-family: Inter;
+}
+
+/*Icons*/
+
+.fa-trash{
+  font-size: 1.7rem;
+  color: var(--dark-brown);
+  padding: .2rem;
 }
