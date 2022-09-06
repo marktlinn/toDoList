@@ -1,6 +1,9 @@
 import React from 'react'
 import { useTodosContext } from '../hooks/useTodosContext';
 
+// Date formatting function
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { format } from 'date-fns';
 const TodoDetails = ({todo}) => {
     const {dispatch} = useTodosContext();
 
@@ -20,8 +23,8 @@ const TodoDetails = ({todo}) => {
         <div className="todo-details">
             <h4>{todo.title}</h4>
             <p><strong>Description: </strong> {todo.description}</p>
-            <p><strong>Created: </strong> {todo.createdAt}</p>
-            {todo.toFinishBy && <p><strong>Finish By: </strong>{todo.toFinishBy}</p>}
+            <p><strong>Created: </strong> {formatDistanceToNow(new Date(todo.createdAt), {addSuffix: true})}</p>
+            {todo.toFinishBy && <p><strong>Finish By: </strong>{format(new Date(todo.toFinishBy), 'E-do-MMM-yyyy')}</p>}
             <button className='deleteBtn' onClick={deleteClick}>Delete</button>
         </div>    
     )
