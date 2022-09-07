@@ -38,10 +38,10 @@ const TodoDetails = ({todo}) => {
 
     return (
         <div className="todo-details">
-            <h4>{todo.title}</h4>
-            <p><strong>Description: </strong> {todo.description}</p>
-            <p><strong>Created: </strong> {formatDistanceToNow(new Date(todo.createdAt), {addSuffix: true})}</p>
-            {todo.toFinishBy && <p><strong>Finish By: </strong>{format(new Date(todo.toFinishBy), 'E-do-MMM-yyyy')}</p>}
+            <h4 className={todo.completed? 'completed': ''}>{todo.title}</h4>
+            <p className={todo.completed? 'completed': ''}><strong>Description: </strong> {todo.description}</p>
+            <p className={todo.completed? 'completed': ''}><strong>Created: </strong> {formatDistanceToNow(new Date(todo.createdAt), {addSuffix: true})}</p>
+            {todo.toFinishBy && <p className={todo.completed? 'completed': ''}><strong>Finish By: </strong>{format(new Date(todo.toFinishBy), 'E-do-MMM-yyyy')}</p>}
             {!todo.completed && <button className='updateBtn' onClick={updateCompleted} value={todo.completed} ><FontAwesomeIcon className='completed' icon={faCheck} /></button>}
             <button className='deleteBtn' onClick={deleteClick}><FontAwesomeIcon className="fa-trash" icon={faTrash} /></button>
         </div>    

@@ -121,6 +121,12 @@ header a {
   border: 2px solid var(--cream);
 }
 
+/* Completed text styling*/
+.completed{
+  text-decoration: line-through;
+  text-decoration-color: var(--pastel);
+}
+
 /*Form styling*/
 
 form{
