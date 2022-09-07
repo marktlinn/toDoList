@@ -83,9 +83,10 @@ const updateTodo = async (req,res)=>{
             ...req.body
         })
         if(!todo){
-            res.status(400).json({error: 'no such todo found to update'})
+            return res.status(400).json({error: 'no such todo found to update'})
 
         }
+        res.status(200).json(todo)
     } catch (error) {
         res.status(500).json({error: error.message})
     }

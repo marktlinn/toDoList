@@ -23,21 +23,17 @@ const TodoDetails = ({todo}) => {
     }
 
     const updateCompleted = async (e) => {
-        e.preventDefault()
-        const val = e.target.value;
-        console.log('updated', e.target.value)
         const response = await fetch(`api/todo/${todo._id}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({completed: val})
+            body: JSON.stringify({completed: true})
         })
-        const json = await response.json;
+        const json = await response.json();
         if(response.ok){
             dispatch({type: 'UPDATE_TODO', payload: json})
         }
-
     }
 
     return (
@@ -46,7 +42,7 @@ const TodoDetails = ({todo}) => {
             <p><strong>Description: </strong> {todo.description}</p>
             <p><strong>Created: </strong> {formatDistanceToNow(new Date(todo.createdAt), {addSuffix: true})}</p>
             {todo.toFinishBy && <p><strong>Finish By: </strong>{format(new Date(todo.toFinishBy), 'E-do-MMM-yyyy')}</p>}
-            <button className='updateBtn' onClick={updateCompleted} value={true} ><FontAwesomeIcon className='completed' icon={faCheck} /></button>
+            {!todo.completed && <button className='updateBtn' onClick={updateCompleted} value={todo.completed} ><FontAwesomeIcon className='completed' icon={faCheck} /></button>}
             <button className='deleteBtn' onClick={deleteClick}><FontAwesomeIcon className="fa-trash" icon={faTrash} /></button>
         </div>    
     )
