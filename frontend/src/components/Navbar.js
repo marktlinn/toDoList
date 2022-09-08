@@ -1,15 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 
 //Font Awesome styling
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 const Navbar = (props) => {
-    function toggleSideNav(){
+   const [clicked, setClicked] = useState(false)
+
+    function toggleMenu(){
+        setClicked(current=> !current);
+        toggleSideNav(clicked)
+    }
+    function toggleSideNav(value){
         const formElem = document.querySelector('form') 
-        return formElem.style.display === 'flex'? formElem.style.display = 'none' : formElem.style.display = 'flex'
+        return value === true? formElem.style.display = 'flex' : formElem.style.display = 'none';
+        // return formElem.style.display === 'flex'? formElem.style.display = 'none' : formElem.style.display = 'flex'
     }   
     return (
         <header>
@@ -20,7 +27,7 @@ const Navbar = (props) => {
             {props.windowSize <= '600' && <FontAwesomeIcon 
             className='faBars' 
             icon={faBars} 
-            onClick={toggleSideNav}
+            onClick={toggleMenu}
             />}
             </div>
         </header>
