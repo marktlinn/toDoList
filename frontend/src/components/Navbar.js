@@ -18,7 +18,11 @@ const Navbar = () => {
 
         return () => {window.removeEventListener('resize', resizeScreen)}
     }, [])
-
+    //handle sidenav bar
+    function toggleSideNav(){
+        const formElem = document.querySelector('form') 
+        return formElem.style.display === 'flex'? formElem.style.display = 'none' : formElem.style.display = 'flex'
+    }   
 
     return (
         <header>
@@ -29,6 +33,7 @@ const Navbar = () => {
             {windowSize <= '600' && <FontAwesomeIcon 
             className='faBars' 
             icon={faBars} 
+            onClick={toggleSideNav}
             />}
             </div>
         </header>
