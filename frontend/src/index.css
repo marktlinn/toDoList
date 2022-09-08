@@ -54,11 +54,13 @@ header a {
 
 /* Home page and cards rules*/
 
-.home{
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 10rem;
-}
+@media screen and (min-width: 600px){
+  .home{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 10rem;
+  }
+} 
 
 .todo-details{
   background: var(--light-grey);
@@ -129,9 +131,17 @@ header a {
 
 /*Form styling*/
 
+
 form{
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 600px){
+  form{
+    align-items: flex-start;
+  }
 }
 form >h3{
   font-size: 1.7rem;
