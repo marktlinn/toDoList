@@ -1,36 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 
 
 //Font Awesome styling
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-const Navbar = () => {
-    //track the wondow
-    const [windowSize, setWindowSize] = useState(window.innerWidth);
-
-    useEffect(()=>{
-        const resizeScreen = () =>{
-            return setWindowSize(window.innerWidth)
-        }
-        window.addEventListener('resize', resizeScreen)
-
-        return () => {window.removeEventListener('resize', resizeScreen)}
-    }, [])
-    //handle sidenav bar
+const Navbar = (props) => {
     function toggleSideNav(){
         const formElem = document.querySelector('form') 
         return formElem.style.display === 'flex'? formElem.style.display = 'none' : formElem.style.display = 'flex'
     }   
-
     return (
         <header>
             <div className="container">
             <Link to="/">
                 <h1>ToDos</h1>
             </Link>
-            {windowSize <= '600' && <FontAwesomeIcon 
+            {props.windowSize <= '600' && <FontAwesomeIcon 
             className='faBars' 
             icon={faBars} 
             onClick={toggleSideNav}

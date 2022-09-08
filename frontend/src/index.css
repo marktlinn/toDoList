@@ -140,7 +140,7 @@ header a {
 /* Completed text styling*/
 .completed{
   text-decoration: line-through;
-  text-decoration-color: var(--pastel);
+  text-decoration-color: var(--dark-brown);
 }
 
 
