@@ -29,8 +29,8 @@ body {
 header{
   width: 100%;
   background-color: var(--dark-brown);
-
 }
+
 header >.container{
   max-width: 1400px;
   padding: 1rem 2rem;
@@ -46,6 +46,10 @@ header a {
   text-decoration: none;
 }
 
+.faBars{
+  font-size: 2rem;
+}
+
 .pages{
   max-width: 1400px;
   padding: 2rem;
@@ -54,11 +58,13 @@ header a {
 
 /* Home page and cards rules*/
 
-.home{
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 10rem;
-}
+@media screen and (min-width: 600px){
+  .home{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 10rem;
+  }
+} 
 
 .todo-details{
   background: var(--light-grey);
@@ -109,7 +115,7 @@ header a {
   bottom: .5rem;
   color: var(--cream);
   border: none;
-  padding: .85rem;
+  padding: .85rem .7rem;
   border: 1px solid var(--dark-grey);
   border-radius: .5rem;
   cursor: pointer;
@@ -121,18 +127,78 @@ header a {
   border: 2px solid var(--cream);
 }
 
+@media screen and (max-width: 320px){
+  :root{
+    font-size: 55%;
+  }
+  .updateBtn{
+    right: .5rem;
+    bottom: 5rem;
+  }
+}
+
 /* Completed text styling*/
 .completed{
   text-decoration: line-through;
-  text-decoration-color: var(--pastel);
+  text-decoration-color: var(--dark-brown);
 }
 
-/*Form styling*/
 
-form{
-  display: flex;
-  flex-direction: column;
+/*Display to none, default for smaller screens*/
+@media screen and (max-width: 600px) {
+  .form-inactive{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--dark-brown);
+    padding: .5rem;
+    box-shadow: 0 0 10px var(--pastel);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    color: var(--cream);
+    left: -110%;
+    transition: 850ms;
+    top: 3rem;
+    margin-top: 20px;
+    background-color: var(--dark-brown);
+    margin-top: 5vh;
+  }
+
+  .form-active{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--dark-brown);
+    padding: .5rem;
+    box-shadow: 0 0 10px var(--pastel);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    color: var(--cream);
+    left: 0;
+    transition: 850ms;
+    top: 3rem;
+    margin-top: 20px;
+    background-color: var(--dark-brown);
+    margin-top: 5vh;
+  }
+
 }
+
+/*Form styling for bigger screens*/
+@media screen and (min-width: 600px){
+  form{
+    position: static;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/*Form stylings always*/
+
 form >h3{
   font-size: 1.7rem;
   font-weight: 700;
@@ -151,6 +217,7 @@ input, textarea{
   margin-bottom: 2rem;
   width: 100%;
   max-width: 400px;
+  resize: vertical;
   border: 1px solid var(--dark-grey);
   border-radius: .4rem;
   box-sizing: border-box;
@@ -200,4 +267,20 @@ form button{
   font-size: 1.7rem;
   color: var(--dark-brown);
   padding: .2rem;
+}
+
+/*Footer*/
+footer{
+  max-width: 1400px;
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+  color: var(--dark-brown);
+  margin: auto;
+}
+
+.profile-tags{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.8rem;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from "react"
 import { useTodosContext } from '../hooks/useTodosContext';
 
-const TodoForm = () => {
+const TodoForm = ( {clicked, toggleMenu, windowSize}) => {
     const {dispatch} = useTodosContext();
 
     const [title, setTitle] = useState('');
@@ -40,8 +40,14 @@ const TodoForm = () => {
         }
     }
 
+    const resetSideBar = () => {
+        if(windowSize< '600') {
+            toggleMenu()
+        }
+    }
+
     return(
-        <form  className="create" onSubmit={handleSubmit}>
+        <form className={clicked === true? 'form-active' : 'form-inactive'} onSubmit={handleSubmit}>
             <h3>Add A New Todo</h3>
 
             <label>Todo Title* :</label>
@@ -72,8 +78,9 @@ const TodoForm = () => {
             value ={toFinishBy}
              />
 
-            <button>Add Todo</button>
-
+            <button
+            onClick={resetSideBar}
+            >Add Todo</button>
             {error && <div className="form-error-msg">{error}</div>}
         </form>
     )

@@ -2,21 +2,50 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import React from 'react';
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer';
 import './index.css';
 
 function App() {
+  const [clicked, setClicked] = React.useState(false)
+
+  function toggleMenu(){
+    setClicked(current=> !current);
+      // const formElem = document.querySelector('form') 
+      // return clicked === true? formElem.style.display = 'flex' : formElem.style.display = 'none';
+  }
+
+  const [windowSize, setWindowSize] = React.useState(window.innerWidth);
+
+  React.useEffect(()=>{
+      const resizeScreen = () =>{
+          return setWindowSize(window.innerWidth)
+      }
+      window.addEventListener('resize', resizeScreen)
+
+      return () => {window.removeEventListener('resize', resizeScreen)}
+  }, [])
+
   return (
     <div className="App">
-      <BrowserRouter>
-      < Navbar />
+      <BrowserRouter >
+      < Navbar 
+      windowSize={windowSize}
+      toggleMenu={toggleMenu}
+      clicked={clicked}
+      />
       <div className="pages">
         <Routes>
           <Route
           path="/"
-          element={< Home />}
+          element={< Home
+            windowSize={windowSize}
+            toggleMenu={toggleMenu}
+            clicked={clicked} 
+             />}
           />
         </Routes>
       </div>
+      < Footer />
       </BrowserRouter>
     </div>
   );
