@@ -17,7 +17,9 @@ app.use((req,res,next)=>{
 
 //Routes
 const todosRoutes = require('./routes/todos')
+const userRoutes = require('./routes/users')
 app.use('/api/todo',todosRoutes)
+app.use('/auth')
 
 
 app.listen(PORT, ()=>{
