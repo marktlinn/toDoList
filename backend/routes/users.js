@@ -9,6 +9,6 @@ const {userLogin, userSignup} = require('../controllers/userControllers')
 router.post('/login', userLogin)
 
 //signup
-router.post('/login', userSignup)
+router.post('/signup', userSignup)
 
-module.exports(router)
+module.exports = router

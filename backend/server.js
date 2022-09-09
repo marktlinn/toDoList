@@ -19,7 +19,7 @@ app.use((req,res,next)=>{
 const todosRoutes = require('./routes/todos')
 const userRoutes = require('./routes/users')
 app.use('/api/todo',todosRoutes)
-app.use('/auth')
+app.use('/api/auth', userRoutes)
 
 
 app.listen(PORT, ()=>{
