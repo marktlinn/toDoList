@@ -145,16 +145,31 @@ header a {
 
 
 /*Display to none, default for smaller screens*/
-
-form{
+@media screen and (max-width: 600px) {
+  .form-inactive{
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: var(--dark-brown)
-}
-@media screen and (max-width: 600px) {
-  form{
-    display: none;
+    color: var(--dark-brown);
+    padding: .5rem;
+    box-shadow: 0 0 10px var(--pastel);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    color: var(--cream);
+    left: -110%;
+    transition: 850ms;
+    top: 3rem;
+    margin-top: 20px;
+    background-color: var(--dark-brown);
+    margin-top: 5vh;
+  }
+
+  .form-active{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--dark-brown);
     padding: .5rem;
     box-shadow: 0 0 10px var(--pastel);
     height: 100%;
@@ -162,20 +177,27 @@ form{
     position: fixed;
     color: var(--cream);
     left: 0;
+    transition: 850ms;
     top: 3rem;
     margin-top: 20px;
     background-color: var(--dark-brown);
     margin-top: 5vh;
   }
+
 }
+
 /*Form styling for bigger screens*/
 @media screen and (min-width: 600px){
   form{
     position: static;
     background-color: none;
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
   }
 }
+
+/*Form stylings always*/
 
 form >h3{
   font-size: 1.7rem;

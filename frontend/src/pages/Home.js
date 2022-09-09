@@ -7,7 +7,7 @@ import { useTodosContext } from "../hooks/useTodosContext"
 import TodoForm from "../components/TodoForm"
 import TodoDetails from '../components/TodoDetails'
 
-const Home = () => {
+const Home = ({ clicked, toggleMenu, windowSize }) => {
     const {todos, dispatch} = useTodosContext()
 
     useEffect(()=>{
@@ -28,7 +28,11 @@ const Home = () => {
                 return < TodoDetails key={todo._id} todo={todo} />
             })}
             </div>
-            < TodoForm />
+            < TodoForm 
+                windowSize={windowSize}
+                toggleMenu={toggleMenu}
+                clicked={clicked} 
+            />
         </div>
     )
 }

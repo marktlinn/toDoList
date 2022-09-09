@@ -5,6 +5,13 @@ import Navbar from './components/Navbar'
 import './index.css';
 
 function App() {
+  const [clicked, setClicked] = React.useState(false)
+
+  function toggleMenu(){
+    setClicked(current=> !current);
+      // const formElem = document.querySelector('form') 
+      // return clicked === true? formElem.style.display = 'flex' : formElem.style.display = 'none';
+  }
 
   const [windowSize, setWindowSize] = React.useState(window.innerWidth);
 
@@ -20,12 +27,20 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter >
-      < Navbar windowSize={windowSize}/>
+      < Navbar 
+      windowSize={windowSize}
+      toggleMenu={toggleMenu}
+      clicked={clicked}
+      />
       <div className="pages">
         <Routes>
           <Route
           path="/"
-          element={< Home />}
+          element={< Home
+            windowSize={windowSize}
+            toggleMenu={toggleMenu}
+            clicked={clicked} 
+             />}
           />
         </Routes>
       </div>
