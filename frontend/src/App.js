@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import React from 'react';
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer';
 import './index.css';
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           />
         </Routes>
       </div>
+      < Footer />
       </BrowserRouter>
     </div>
   );

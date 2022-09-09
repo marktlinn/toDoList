@@ -268,3 +268,19 @@ form button{
   color: var(--dark-brown);
   padding: .2rem;
 }
+
+/*Footer*/
+footer{
+  max-width: 1400px;
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+  color: var(--dark-brown);
+  margin: auto;
+}
+
+.profile-tags{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.8rem;
+}
