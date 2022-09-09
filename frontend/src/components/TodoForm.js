@@ -40,6 +40,12 @@ const TodoForm = ( {clicked, toggleMenu, windowSize}) => {
         }
     }
 
+    const resetSideBar = () => {
+        if(windowSize< '600') {
+            toggleMenu()
+        }
+    }
+
     return(
         <form className={clicked === true? 'form-active' : 'form-inactive'} onSubmit={handleSubmit}>
             <h3>Add A New Todo</h3>
@@ -72,7 +78,9 @@ const TodoForm = ( {clicked, toggleMenu, windowSize}) => {
             value ={toFinishBy}
              />
 
-            <button>Add Todo</button>
+            <button
+            onClick={resetSideBar}
+            >Add Todo</button>
             {error && <div className="form-error-msg">{error}</div>}
         </form>
     )

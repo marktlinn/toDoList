@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 //Font Awesome styling
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faXmark } from '@fortawesome/free-solid-svg-icons'
 const Navbar = ({windowSize, toggleMenu, clicked}) => {
 //    const [clicked, setClicked] = useState(false)
 
@@ -22,11 +22,17 @@ const Navbar = ({windowSize, toggleMenu, clicked}) => {
             <Link to="/">
                 <h1>ToDos</h1>
             </Link>
-            {windowSize <= '600' && <FontAwesomeIcon 
+            {windowSize <= '600' && !clicked &&<FontAwesomeIcon 
             className='faBars' 
-            icon={faBars} 
+            icon={faPlus} 
             onClick={toggleMenu}
             />}
+            {windowSize <= '600' && clicked &&<FontAwesomeIcon 
+            className='faBars' 
+            icon={faXmark} 
+            onClick={toggleMenu}
+            />}
+
             </div>
         </header>
     )
