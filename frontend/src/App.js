@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import React from 'react';
 import Home from './pages/Home'
+import Login from './pages/Login'
+import SignUp from './pages/SignUp'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer';
 import './index.css';
@@ -36,12 +38,21 @@ function App() {
       <div className="pages">
         <Routes>
           <Route
-          path="/"
-          element={< Home
-            windowSize={windowSize}
-            toggleMenu={toggleMenu}
-            clicked={clicked} 
-             />}
+            path="/"
+            element={
+            < Home
+              windowSize={windowSize}
+              toggleMenu={toggleMenu}
+              clicked={clicked} 
+          />}
+          />
+          <Route
+            path="/login"
+            element={Login}
+          />
+          <Route
+            path="/signup"
+            element={SignUp}
           />
         </Routes>
       </div>

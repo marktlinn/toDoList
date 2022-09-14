@@ -22,6 +22,9 @@ const Navbar = ({windowSize, toggleMenu, clicked}) => {
             <Link to="/">
                 <h1>ToDos</h1>
             </Link>
+            <Link to="/signup">
+                <h1>SignUp</h1></Link>
+            <Link to="/login"><h1>Login</h1></Link>
             {windowSize <= '600' && !clicked &&<FontAwesomeIcon 
             className='faBars' 
             icon={faPlus} 

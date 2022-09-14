@@ -47,7 +47,7 @@ const TodoForm = ( {clicked, toggleMenu, windowSize}) => {
     }
 
     return(
-        <form className={clicked === true? 'form-active' : 'form-inactive'} onSubmit={handleSubmit}>
+        <form className={clicked === true? 'form-active todo-form' : 'form-inactive todo-form'} onSubmit={handleSubmit}>
             <h3>Add A New Todo</h3>
 
             <label>Todo Title* :</label>

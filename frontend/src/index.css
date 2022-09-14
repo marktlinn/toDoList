@@ -144,6 +144,18 @@ header a {
 }
 
 
+/*Standard form stylings*/
+
+textarea:focus{
+  outline: none;
+  border-color: var(--pastel);
+}
+
+form >input:focus {
+  outline: none;
+  border-color: var(--pastel);
+}
+
 /*Display to none, default for smaller screens*/
 @media screen and (max-width: 600px) {
   .form-inactive{
@@ -197,20 +209,20 @@ header a {
   }
 }
 
-/*Form stylings always*/
+/*Todo Form stylings always*/
 
-form >h3{
+.todo-form h3{
   font-size: 1.7rem;
   font-weight: 700;
 }
 
-label{
+.todo-form label{
   display: block;
   font-size: 1.3rem;
   font-weight: 700;
 }
 
-input, textarea{
+.todo-form  input, textarea{
   font-family: Inter;
   padding: 1rem;
   margin-top: 1rem;
@@ -223,13 +235,13 @@ input, textarea{
   box-sizing: border-box;
 }
 
-form select{
+.todo-form >select{
   color: var(--dark-brown);
   padding: 3rem;
   border-radius: .4rem;
   cursor: pointer;
 }
-form button{
+.todo-form > button{
   background: var(--pastel);
   color: var(--dark-brown);
   width: 70%;
