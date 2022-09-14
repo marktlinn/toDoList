@@ -11,7 +11,9 @@ const SignUp = () =>{
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form 
+        onSubmit={handleSubmit}
+        className="signup">
             <h3>Sign Up</h3>
 
             <label>Email: </label>
@@ -28,7 +30,7 @@ const SignUp = () =>{
             value={password}
              />
 
-            <button>Sign Up</button>
+            <button className='formBtn'>Sign Up</button>
         </form>
     )
 }

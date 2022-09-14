@@ -79,6 +79,7 @@ const TodoForm = ( {clicked, toggleMenu, windowSize}) => {
              />
 
             <button
+            className='formBtn'
             onClick={resetSideBar}
             >Add Todo</button>
             {error && <div className="form-error-msg">{error}</div>}

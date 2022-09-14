@@ -11,7 +11,9 @@ const Login = () =>{
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form 
+        onSubmit={handleSubmit}
+        className="login">
             <h3>Login</h3>
 
             <label>Email: </label>
@@ -28,7 +30,7 @@ const Login = () =>{
             value={password}
              />
 
-            <button>Login</button>
+            <button className='formBtn'>Login</button>
         </form>
     )
 }

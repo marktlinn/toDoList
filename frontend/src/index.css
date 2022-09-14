@@ -241,7 +241,7 @@ form >input:focus {
   border-radius: .4rem;
   cursor: pointer;
 }
-.todo-form > button{
+.formBtn{
   background: var(--pastel);
   color: var(--dark-brown);
   width: 70%;
@@ -249,6 +249,7 @@ form >input:focus {
   border: none;
   padding: 1rem;
   border-radius: .4rem;
+  border: 1px solid var(--dark-grey);
   cursor: pointer;
 }
 
@@ -295,4 +296,53 @@ footer{
   align-items: center;
   gap: 1rem;
   font-size: 1.8rem;
+}
+
+
+/* Signup and Login Section*/
+
+form.signup, form.login{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 50rem;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: var(--light-grey);
+  border-radius: .4rem;
+  color: var(--dark-brown)
+}
+
+.signup>label, .login>label{
+  font-size: 1.5rem;
+}
+.signup>h3, .login>h3{
+  font-size: 2rem;
+}
+
+.signup>input{
+  width: 70%;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.login>input{
+  width: 70%;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.formBtn{
+  background: var(--pastel);
+  color: var(--dark-brown);
+  width: 70%;
+  align-self: center;
+  border: none;
+  padding: 1rem;
+  border-radius: .4rem;
+  cursor: pointer;
+  border: 1px solid var(--dark-grey);
+  font-size: 1.3rem;
+  font-weight: 700;
 }
