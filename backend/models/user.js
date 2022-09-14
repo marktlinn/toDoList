@@ -29,4 +29,24 @@ UserSchema.statics.signup = async function(email, password) {
 
     return user;
 }
+UserSchema.statics.login = async function(email, password){
+    if(!email || !password){
+        throw Error('Must provide both an Email and a Password')
+    };
+
+    const user = await this.findOne({ email });
+
+    if(!user){
+        throw Error('Email doesn\'t exist')
+    }
+    //compare the password given with the hashed PWD in the DB
+    const comparePWDs = await bcrypt.compare(password, user.password);
+
+    if(!comparePWDs){
+        throw Error('Password Incorrect')
+    }
+
+    return user
+}
+
 module.exports = mongoose.model('User', UserSchema)

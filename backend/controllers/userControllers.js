@@ -1,4 +1,3 @@
-
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 
@@ -7,7 +6,16 @@ function createWebToken(_id){
 }
 //User login controller
 async function userLogin(req,res) {
-    res.send({message: 'user login'})
+    const { email, password } = req.body;
+    try {
+        const user = await User.login(email, password)
+
+        const token = createWebToken(user._id)
+
+        res.status(200).json({email, token})
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
 }
 
 //User signup controller
