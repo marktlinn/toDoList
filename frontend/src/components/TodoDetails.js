@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTodosContext } from '../hooks/useTodosContext';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 // Date formatting function
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
@@ -10,10 +11,17 @@ import { faTrash, faCheck} from '@fortawesome/free-solid-svg-icons';
 
 const TodoDetails = ({todo}) => {
     const {dispatch} = useTodosContext();
+    const { user } = useAuthContext();
 
     const deleteClick = async () => {
-        const response = await fetch('api/todo/' + todo._id, {
-            method: 'DELETE'
+        if(!user){
+            return
+        }
+        const response = await fetch(`api/todo/${todo._id}`, {
+            method: 'DELETE',
+            headers: {
+                "Authorization": `Bearer ${user.token}`
+            }
         })
         console.log('deleted', response)
         const json = await response.json();
@@ -26,6 +34,7 @@ const TodoDetails = ({todo}) => {
         const response = await fetch(`api/todo/${todo._id}`, {
             method: 'PUT',
             headers: {
+                "Authorization": `Bearer ${user.token}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({completed: true})

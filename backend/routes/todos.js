@@ -12,7 +12,6 @@ router.get('/', getAllTodos)
 //Get a singular Todo
 router.get('/:id', getTodo)
 
-
 //Post a new Todo
 router.post('/', createTodo)
 

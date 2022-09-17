@@ -283,7 +283,7 @@ form >input:focus {
   background-color: var(--dark-grey);
   border: 1px solid var(--dark-brown);
   border-radius: .4rem;
-  margin: 2rem 0;
+  margin: 2rem auto;
 }
 
 .error-text{
