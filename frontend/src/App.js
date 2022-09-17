@@ -48,6 +48,7 @@ function App() {
             path="/"
             element={
             user ? <Home
+              className="home"
               windowSize={windowSize}
               toggleMenu={toggleMenu}
               clicked={clicked}

@@ -21,10 +21,11 @@ a {
 
 .pages{
     display: flex;
-    min-height: calc(100vh - 125px);
+    min-height: calc(100vh - 7rem);
     flex-direction: column;
     max-width: 1400px;
     padding: 2rem;
+    padding-top: 8rem;
     margin: 0 auto;
 }
 
@@ -35,8 +36,11 @@ body {
 /*Nav and header section*/
 
 header{
+  position: fixed;
+  z-index: 100;
   width: 100%;
   background-color: var(--dark-brown);
+  height: 6.5rem;
 }
 
 header >.container{
