@@ -22,7 +22,7 @@ const Navbar = ({windowSize, toggleMenu, clicked}) => {
                 <h1>ToDos</h1>
             </Link>
             {!user && 
-            <div>
+            <div className="signup-login-container">
                 <Link to="/signup">
                     <h1 className='signup-login'>SignUp</h1>
                 </Link>
@@ -31,7 +31,7 @@ const Navbar = ({windowSize, toggleMenu, clicked}) => {
                 </Link>
             </div>}
             { user && (<div>
-                <span>{user.email}</span>
+                <span className='username-logged-in'>{user.email}</span>
                 <button
                 className='logout-btn'
                 onClick={clickLogout}

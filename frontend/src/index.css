@@ -58,6 +58,11 @@ header a {
   font-size: 2rem;
 }
 
+.signup-login-container{
+  display: flex;
+  gap: 1rem;
+}
+
 .signup-login:nth-child(1){
   font-size: 1.4rem;
 }
@@ -319,6 +324,12 @@ footer{
   align-items: center;
   gap: 1rem;
   font-size: 1.8rem;
+}
+
+/*Username appearance on log in */
+
+.username-logged-in{
+  margin-right: 1rem;
 }
 
 

@@ -1,5 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { useAuthContext } from './hooks/useAuthContext';
 import React from 'react';
+//components and pages
 import Home from './pages/Home'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
@@ -10,6 +12,7 @@ import './index.css';
 function App() {
   const [clicked, setClicked] = React.useState(false)
 
+  const { user } = useAuthContext();
   function toggleMenu(){
     setClicked(current=> !current);
       // const formElem = document.querySelector('form') 
@@ -40,19 +43,19 @@ function App() {
           <Route
             path="/"
             element={
-            < Home
+            user ? <Home
               windowSize={windowSize}
               toggleMenu={toggleMenu}
-              clicked={clicked} 
-          />}
-          />
+              clicked={clicked} /> : 
+            < Navigate to='/login' />}
+            />
           <Route
             path="/login"
-            element={<Login />}
+            element={ !user ? <Login /> : < Navigate to='/' />}
           />
           <Route
             path="/signup"
-            element={< SignUp />}
+            element={ !user ? < SignUp /> : < Navigate />}
           />
         </Routes>
       </div>
