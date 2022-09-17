@@ -11,12 +11,16 @@ import './index.css';
 
 function App() {
   const [clicked, setClicked] = React.useState(false)
-
+  const [error, setError] = React.useState(null);
+  
   const { user } = useAuthContext();
-  function toggleMenu(){
-    setClicked(current=> !current);
-      // const formElem = document.querySelector('form') 
-      // return clicked === true? formElem.style.display = 'flex' : formElem.style.display = 'none';
+  function toggleMenu(override){
+    if(!error || override.length>0){
+      setClicked(current=> !current);
+    }
+  }
+  function toggleMenuOverRide(){
+      setClicked(current=> !current);
   }
 
   const [windowSize, setWindowSize] = React.useState(window.innerWidth);
@@ -35,7 +39,7 @@ function App() {
       <BrowserRouter >
       < Navbar 
       windowSize={windowSize}
-      toggleMenu={toggleMenu}
+      toggleMenu={toggleMenuOverRide}
       clicked={clicked}
       />
       <div className="pages">
@@ -46,7 +50,10 @@ function App() {
             user ? <Home
               windowSize={windowSize}
               toggleMenu={toggleMenu}
-              clicked={clicked} /> : 
+              clicked={clicked}
+              setError={setError}
+              error={error}
+              /> : 
             < Navigate to='/login' />}
             />
           <Route

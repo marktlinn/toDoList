@@ -7,9 +7,10 @@ import { useAuthContext } from '../hooks/useAuthContext'
 import TodoForm from "../components/TodoForm"
 import TodoDetails from '../components/TodoDetails'
 
-const Home = ({ clicked, toggleMenu, windowSize }) => {
+const Home = ({ clicked, toggleMenu, windowSize, error, setError }) => {
     const {todos, dispatch} = useTodosContext()
     const { user } = useAuthContext();
+    
     useEffect(()=>{
         const fetchTodos = async () => {
             const response = await fetch('/api/todo', {
@@ -38,6 +39,8 @@ const Home = ({ clicked, toggleMenu, windowSize }) => {
                 windowSize={windowSize}
                 toggleMenu={toggleMenu}
                 clicked={clicked} 
+                error={error}
+                setError={setError}
             />
         </div>
     )

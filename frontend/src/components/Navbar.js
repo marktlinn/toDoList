@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from '../hooks/useAuthContext';
-
 //Font Awesome styling
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faXmark } from '@fortawesome/free-solid-svg-icons'
@@ -37,12 +36,12 @@ const Navbar = ({windowSize, toggleMenu, clicked}) => {
                 onClick={clickLogout}
                 >Logout</button>
             </div>)}
-            {windowSize <= '600' && !clicked &&<FontAwesomeIcon 
+            {windowSize <= '600' && !clicked && user &&<FontAwesomeIcon 
             className='faBars' 
             icon={faPlus} 
             onClick={toggleMenu}
             />}
-            {windowSize <= '600' && clicked &&<FontAwesomeIcon 
+            {windowSize <= '600' && clicked && user &&<FontAwesomeIcon 
             className='faBars' 
             icon={faXmark} 
             onClick={toggleMenu}

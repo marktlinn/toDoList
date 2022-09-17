@@ -2,14 +2,15 @@ import React from 'react';
 import { useState } from "react"
 import { useTodosContext } from '../hooks/useTodosContext';
 import { useAuthContext } from '../hooks/useAuthContext'
-const TodoForm = ( {clicked, toggleMenu, windowSize}) => {
+
+const TodoForm = ( {clicked, toggleMenu, windowSize, error, setError}) => {
     const {dispatch} = useTodosContext();
     const { user } = useAuthContext();
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [toFinishBy, setToFinishBy] = useState('');
-    const [error, setError] = useState(null);
+    // const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
 
     const handleSubmit = async (e) =>{
@@ -47,11 +48,10 @@ const TodoForm = ( {clicked, toggleMenu, windowSize}) => {
     }
 
     const resetSideBar = () => {
-        if(windowSize< '600') {
+        if(windowSize< '600' && !clicked) {
             toggleMenu()
         }
     }
-
     return(
         <form className={clicked === true? 'form-active todo-form' : 'form-inactive todo-form'} onSubmit={handleSubmit}>
             <h3>Add A New Todo</h3>
