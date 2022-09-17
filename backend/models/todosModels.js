@@ -21,6 +21,10 @@ const todo = new Schema({
     completed:{
         type: Boolean,
         default: false
+    },
+    user_id: {
+        type: String,
+        required: true
     }
 })
 

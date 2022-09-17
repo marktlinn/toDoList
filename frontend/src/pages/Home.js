@@ -10,7 +10,6 @@ import TodoDetails from '../components/TodoDetails'
 const Home = ({ clicked, toggleMenu, windowSize }) => {
     const {todos, dispatch} = useTodosContext()
     const { user } = useAuthContext();
-
     useEffect(()=>{
         const fetchTodos = async () => {
             const response = await fetch('/api/todo', {
