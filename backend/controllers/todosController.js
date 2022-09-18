@@ -3,18 +3,16 @@ const Todo = require('../models/todosModels')
 
 
 
-// get all todos
+// get all own todos
 const getAllTodos = async (req,res)=>{
     try {
         const user_id = req.user._id;
-
 
         const todos = await Todo.find({ user_id}).sort({completed: 1 ,toFinishBy: 1,  createdAt: 1});
         res.status(200).json(todos)
     } catch (error) {
         res.status(500).json({error: error.message})
     }
-
 }
 
 // get single todo
