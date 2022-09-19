@@ -52,4 +52,26 @@ async function followUser(req,res) {
         res.status(403).json('You can only follow other users')
     }
 }
-module.exports = {userLogin, userSignup, followUser}
+
+//Unfollow another user
+async function unfollowUser(req,res) {
+    if(req.body.userId !== req.params.id){
+        console.log('user followed')
+        try {
+            const user = await User.findById(req.params.id)
+            const currentUser = await User.findById(req.body.userId)
+            if(user.followers.includes(req.body.userId)){
+                await user.updateOne({ $pull: { followers: req.body.userId}})
+                await currentUser.updateOne({ $pull: { following: req.params.id}})
+                res.status(200).json('User unfollowed')
+            }
+        } catch (error) {
+            res.status(500).json({error: error.message})
+        }
+    }
+    else {
+        console.log('User ID: ', req.body.userId)
+        res.status(403).json('You can only follow other users')
+    }
+}
+module.exports = {userLogin, userSignup, followUser, unfollowUser}

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 //controller functions
-const {userLogin, userSignup, followUser} = require('../controllers/userControllers');
+const {userLogin, userSignup, followUser, unfollowUser} = require('../controllers/userControllers');
 
 //logins
 router.post('/login', userLogin);
@@ -14,4 +14,5 @@ router.post('/signup', userSignup);
 router.put('/:id/follow', followUser)
 
 //unfollow another user
+router.put('/:id/unfollow', unfollowUser)
 module.exports = router
