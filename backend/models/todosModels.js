@@ -25,7 +25,8 @@ const todo = new Schema({
     user_id: {
         type: String,
         required: true
-    }
+    },
+
 })
 
 module.exports = mongoose.model('Todo', todo);

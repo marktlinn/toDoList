@@ -23,7 +23,6 @@ const TodoDetails = ({todo}) => {
                 "Authorization": `Bearer ${user.token}`
             }
         })
-        console.log('deleted', response)
         const json = await response.json();
         if(response.ok) {
             dispatch({type: 'DELETE_TODO', payload: json});
