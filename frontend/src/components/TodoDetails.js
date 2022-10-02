@@ -17,7 +17,7 @@ const TodoDetails = ({todo}) => {
         if(!user){
             return
         }
-        const response = await fetch(`api/todo/${todo._id}`, {
+        const response = await fetch(`https://todo-list-app-0s3a.onrender.com/api/todo/${todo._id}`, {
             method: 'DELETE',
             headers: {
                 "Authorization": `Bearer ${user.token}`
@@ -30,7 +30,7 @@ const TodoDetails = ({todo}) => {
     }
 
     const updateCompleted = async () => {
-        const response = await fetch(`api/todo/${todo._id}`, {
+        const response = await fetch(`https://todo-list-app-0s3a.onrender.com/api/todo/${todo._id}`, {
             method: 'PUT',
             headers: {
                 "Authorization": `Bearer ${user.token}`,
