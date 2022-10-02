@@ -25,7 +25,7 @@ a {
     flex-direction: column;
     max-width: 1400px;
     padding: 2rem;
-    padding-top: 8rem;
+    padding-top: 8rem; 
     margin: 0 auto;
 }
 
@@ -199,7 +199,7 @@ form >input:focus {
     color: var(--cream);
     left: -110%;
     transition: 850ms;
-    top: 3rem;
+    top: 1rem;
     margin-top: 20px;
     background-color: var(--dark-brown);
     margin-top: 5vh;
@@ -218,7 +218,7 @@ form >input:focus {
     color: var(--cream);
     left: 0;
     transition: 850ms;
-    top: 3rem;
+    top: 1rem;
     margin-top: 20px;
     background-color: var(--dark-brown);
     margin-top: 5vh;

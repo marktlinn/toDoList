@@ -1,21 +1,47 @@
 const { default: mongoose } = require('mongoose');
 const Todo = require('../models/todosModels')
-
+const User = require('..//models/userModels');
+const { findById } = require('../models/todosModels');
 
 
 // get all todos
 const getAllTodos = async (req,res)=>{
     try {
         const user_id = req.user._id;
+        const followingList = await User.findOne({ _id: user_id })
+        .then(data=> data.following.map(friendId=> friendId))
+        console.log(...followingList)
+        const todos = await Todo.find({ $or:[ {user_id:user_id}, {user_id: followingList }]}).sort({completed: 1 ,toFinishBy: 1,  createdAt: -1});
+        // const followingTodos = await Promise.all(
+        //         followingList.map((friendId)=> {
+        //             return Todo.find({ user_id: friendId}).sort({completed: 1 ,toFinishBy: 1,  createdAt: 1})
+        //         })
+        //     );
+        // const allTodos = Promise.all([])
+        // res.status(200).json(todos.concat(...followingTodos))
 
-
-        const todos = await Todo.find({ user_id}).sort({completed: 1 ,toFinishBy: 1,  createdAt: 1});
-        res.status(200).json(todos)
+            res.status(200).json(todos)
     } catch (error) {
         res.status(500).json({error: error.message})
     }
-
 }
+
+// const getAllTodos = async (req,res)=>{
+//     try {
+//         const currentUser = req.user._id;
+
+//         const todos = await Todo.find({ user_id: currentUser }).sort({completed: 1 ,toFinishBy: 1,  createdAt: 1});
+//         const followingTodos = await Promise.all(
+//             currentUser.following.map((friendId)=> {
+//                 return Todo.find({ userid: friendId})
+//             })
+//         );
+//         res.status(200).json(todos.concat(...followingTodos))
+//     } catch (error) {
+//         console.log('problem with get all todos')
+//         res.status(500).json({error: error.message})
+//     }
+// }
 
 // get single todo
 const getTodo = async (req,res)=>{
@@ -96,3 +122,5 @@ const updateTodo = async (req,res)=>{
 }
 
 module.exports = { getAllTodos, getTodo, createTodo, deleteTodo, updateTodo }
+
+

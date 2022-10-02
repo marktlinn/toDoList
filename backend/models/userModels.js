@@ -11,6 +11,14 @@ const UserSchema = new Schema({
     password:{
         type: String,
         required: true,
+    },
+    followers: {
+        type: Array,
+        default: []
+    },
+    following: {
+        type: Array,
+        default: []
     }
 })
 
