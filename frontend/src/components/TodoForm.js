@@ -22,7 +22,7 @@ const TodoForm = ( {clicked, setClicked, toggleMenu, windowSize, error, setError
         }
         const todo = {title, description, toFinishBy}
 
-        const response = await fetch('api/todo', {
+        const response = await fetch('/api/todo', {
             method: 'POST',
             body: JSON.stringify(todo),
             headers: {

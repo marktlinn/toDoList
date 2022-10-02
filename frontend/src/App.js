@@ -8,7 +8,6 @@ import SignUp from './pages/SignUp'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer';
 import './index.css';
-
 function App() {
   const [clicked, setClicked] = React.useState(false)
   const [error, setError] = React.useState(null);
