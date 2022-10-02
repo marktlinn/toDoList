@@ -7,7 +7,7 @@ import { useAuthContext } from '../hooks/useAuthContext'
 import TodoForm from "../components/TodoForm"
 import TodoDetails from '../components/TodoDetails'
 
-const Home = ({ clicked, toggleMenu, windowSize, error, setError }) => {
+const Home = ({ clicked, setClicked, toggleMenu, windowSize, error, setError }) => {
     const {todos, dispatch} = useTodosContext()
     const { user } = useAuthContext();
     
@@ -39,6 +39,7 @@ const Home = ({ clicked, toggleMenu, windowSize, error, setError }) => {
                 windowSize={windowSize}
                 toggleMenu={toggleMenu}
                 clicked={clicked} 
+                setClicked={setClicked}
                 error={error}
                 setError={setError}
             />

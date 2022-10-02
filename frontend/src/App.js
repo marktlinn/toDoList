@@ -52,6 +52,7 @@ function App() {
               windowSize={windowSize}
               toggleMenu={toggleMenu}
               clicked={clicked}
+              setClicked={setClicked}
               setError={setError}
               error={error}
               /> : 

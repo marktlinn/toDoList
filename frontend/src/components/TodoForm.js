@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useTodosContext } from '../hooks/useTodosContext';
 import { useAuthContext } from '../hooks/useAuthContext'
 
-const TodoForm = ( {clicked, toggleMenu, windowSize, error, setError}) => {
+const TodoForm = ( {clicked, setClicked, toggleMenu, windowSize, error, setError}) => {
     const {dispatch} = useTodosContext();
     const { user } = useAuthContext();
 
@@ -38,16 +38,19 @@ const TodoForm = ( {clicked, toggleMenu, windowSize, error, setError}) => {
         }
         if(response.ok){
             setError(null);
+            setClicked(false)
             setTitle('');
             setDescription('');
             setToFinishBy('');
             setError(null);
             setEmptyFields([]);
             dispatch({type: "CREATE_TODO", payload: json});
+            resetSideBar();
         }
     }
 
-    const resetSideBar = () => {
+    function resetSideBar () {
+        console.log('reset')
         if(windowSize< '600' && !clicked) {
             toggleMenu()
         }
@@ -86,7 +89,7 @@ const TodoForm = ( {clicked, toggleMenu, windowSize, error, setError}) => {
 
             <button
             className='formBtn'
-            onClick={resetSideBar}
+            // onClick={resetSideBar}
             >Add Todo</button>
             {error && <div className="form-error-msg">{error}</div>}
         </form>
