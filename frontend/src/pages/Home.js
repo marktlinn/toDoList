@@ -13,7 +13,8 @@ const Home = ({ clicked, setClicked, toggleMenu, windowSize, error, setError }) 
     
     useEffect(()=>{
         const fetchTodos = async () => {
-            const response = await fetch('https://todo-list-app-0s3a.onrender.com/api/todo', {
+            const response = await fetch('https://todo-list-app-0s3a.onrender.com/api/todo',{
+                mode:'cors',
                 headers: {
                     'Authorization': `Bearer ${user.token}`
                 }

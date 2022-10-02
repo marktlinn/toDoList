@@ -12,6 +12,7 @@ export const useLogin =  () => {
 
         const response = await fetch('https://todo-list-app-0s3a.onrender.com/api/auth/login', {
             method: 'POST',
+            mode:'cors',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({ email, password })
         })
