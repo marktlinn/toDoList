@@ -13,7 +13,7 @@ const Home = ({ clicked, setClicked, toggleMenu, windowSize, error, setError }) 
     
     useEffect(()=>{
         const fetchTodos = async () => {
-            const response = await fetch('/api/todo', {
+            const response = await fetch('api/todo', {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
                 }
