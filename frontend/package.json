@@ -1,5 +1,5 @@
 {
-  "proxy": "http://localhost:3000/",
+  "proxy": "https://todo-list-app-0s3a.onrender.com/",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
