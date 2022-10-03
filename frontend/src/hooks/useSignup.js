@@ -23,13 +23,11 @@ export const useSignup =  () => {
             setError(json.error)
         }
         if(response.ok){
-            setIsLoading(false)
             // save user to localStorage: JSON WebToken and user
             localStorage.setItem('user', JSON.stringify(json))
             console.log('signup complete: new user created')
             // update auth context
             dispatch({type: 'LOGIN', payload: json})
-
             setIsLoading(false)
         }
     }
