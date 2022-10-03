@@ -1,5 +1,5 @@
 # Todo List
-A Full-stack Todo List CRUD app designed so that I could have one consistent and always in sync todo list, which is available across all devices. It's a typical todo list in terms of design, but I added the possibility to follower others, so your todo list includes other people's too (functionality only possible through backend at the moment. This was initially added so that my girlfriend and I could share todos for things around the house, groceries etc., where we both have access to and read/write access to the same list).
+A Full-stack Todo List CRUD app designed so that I could have one consistent and always in sync todo list, which is available across all devices. It's a typical todo list in terms of design, but I added the possibility to follower others, so your todo list includes other people's too (functionality only possible through backend at the moment. This was initially added so that my girlfriend and I could share todos for things around the house, groceries etc., where we both have read/write access to the same list).
 
 **Link to project:** https://todo-list-app-fe.onrender.com
 
