@@ -12,9 +12,13 @@ the app is orangised according to the MVC paradigm. The backend is built in Node
 
 ## Optimisations
 This project was developed to help me practice my MERN stack skills as well as creating an app that would be genuinely beneficial for use in my daily life. This app is an MVP, it is functioning but there is a lot of room for optimisations. Ideally I would like to add:
+    <br/>
     -Add ability to follower others (to frontend): at the moment the abiltiy to follow others is only through the backend api
+    <br/>
     -Add ability to remove followers: so users can see who follows their lists and can remove those they choose to
+    <br/>
     -Add ability to accept or deny follow requests
+    <br/>
     -Add ability to search for users on frontend.
 
 ## Lessons Learned:
