@@ -23,7 +23,6 @@ export const useLogin =  () => {
             setError(json.error)
         }
         if(response.ok){
-            setIsLoading(false)
             // save user to localStorage: JSON WebToken and user
             localStorage.setItem('user', JSON.stringify(json))
 
