@@ -3,12 +3,17 @@ A Full-stack Todo List CRUD app designed so that I could have one consistent and
 
 **Link to project:** https://todo-list-app-fe.onrender.com
 
+
+<h4 align="center">
+App running on phone
+</h4>
+<p align="center">
+<img width="300" alt="frontpage" src="https://user-images.githubusercontent.com/88390425/206495989-5fd889f6-4f9f-45fd-a836-ae9faa14c60f.gif">
+</p>
+
 **App running in browser**
 https://user-images.githubusercontent.com/88390425/193563045-67818c22-c0c9-4793-804d-60aba3f41bf8.mov
 
-
-**App running on mobile**
-https://user-images.githubusercontent.com/88390425/193563061-6e90a2c4-9342-471e-88a1-4a62f73c649b.mov
 
 
 ## How It's Made:
