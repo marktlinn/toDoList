@@ -1,37 +1,40 @@
-import { useState } from 'react';
-import { useAuthContext } from './useAuthContext'
+import { useState } from "react";
+import { useAuthContext } from "./useAuthContext";
 
-export const useLogin =  () => {
-    const [error, setError] = useState(null);
-    const [isLoading, setIsLoading] = useState(null)
-    const { dispatch } = useAuthContext()
-    
-    const login = async (email, password) =>{
-        setIsLoading(true)
-        setError(null)
+export const useLogin = () => {
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
+  const { dispatch } = useAuthContext();
 
-        const response = await fetch('https://todo-list-app-0s3a.onrender.com/api/auth/login', {
-            method: 'POST',
-            mode:'cors',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({ email, password })
-        })
-        const json = await response.json()
+  const login = async (email, password) => {
+    setIsLoading(true);
+    setError(null);
 
-        if(!response.ok){
-            setIsLoading(false)
-            setError(json.error)
-        }
-        if(response.ok){
-            // save user to localStorage: JSON WebToken and user
-            localStorage.setItem('user', JSON.stringify(json))
+    const response = await fetch(
+      "https://todo-be-nblz.onrender.com/api/auth/login",
+      {
+        method: "POST",
+        mode: "cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      }
+    );
+    const json = await response.json();
 
-            // update auth context
-            dispatch({type: 'LOGIN', payload: json})
-
-            setIsLoading(false)
-        }
+    if (!response.ok) {
+      setIsLoading(false);
+      setError(json.error);
     }
+    if (response.ok) {
+      // save user to localStorage: JSON WebToken and user
+      localStorage.setItem("user", JSON.stringify(json));
 
-    return { login, isLoading, error }
-}
+      // update auth context
+      dispatch({ type: "LOGIN", payload: json });
+
+      setIsLoading(false);
+    }
+  };
+
+  return { login, isLoading, error };
+};
