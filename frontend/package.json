@@ -1,5 +1,5 @@
 {
-  "proxy": "https://todo-list-app-0s3a.onrender.com/",
+  "proxy": "https://todo-be-nblz.onrender.com",
   "name": "frontend",
   "homepage": ".",
   "version": "0.1.0",
